@@ -1,12 +1,46 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian-8.1.0"
-  config.vm.box_url = "https://github.com/kraksoft/vagrant-box-debian/releases/download/8.1.0/debian-8.1.0-amd64.box"
-
+  # vuls.test
   config.vm.define "vuls.test" do |machine|
+    machine.vm.box = "debian-8.1.0"
+    machine.vm.box_url = "https://github.com/kraksoft/vagrant-box-debian/releases/download/8.1.0/debian-8.1.0-amd64.box"
     machine.vm.network "private_network", ip: "192.168.10.107"
     machine.vm.synced_folder ".", "/vagrant", disabled: true
   end
+
+  # ubuntu1204-i386
+  config.vm.define "ubuntu1204-i386.test" do |machine|
+    machine.vm.box = "box-cutter/ubuntu1204-i386"
+    machine.vm.box_url = "https://vagrantcloud.com/box-cutter/boxes/ubuntu1204-i386"
+    machine.vm.network "private_network", ip: "192.168.10.108"
+    machine.vm.synced_folder ".", "/vagrant", disabled: true
+  end
+
+  # debian81
+  config.vm.define "debian81.test" do |machine|
+    machine.vm.box = "box-cutter/debian81"
+    machine.vm.box_url = "https://vagrantcloud.com/box-cutter/boxes/debian81"
+    machine.vm.network "private_network", ip: "192.168.10.109"
+    machine.vm.synced_folder ".", "/vagrant", disabled: true
+  end
+
+  # centos510
+  config.vm.define "centos510.test" do |machine|
+    machine.vm.box = "box-cutter/centos510"
+    machine.vm.box_url = "https://vagrantcloud.com/box-cutter/boxes/centos510"
+    machine.vm.network "private_network", ip: "192.168.10.110"
+    machine.vm.synced_folder ".", "/vagrant", disabled: true
+  end
+
+  # freebsd102
+  config.vm.define "freebsd102.test" do |machine|
+    machine.vm.box = "box-cutter/freebsd102"
+    machine.vm.box_url = "https://vagrantcloud.com/box-cutter/boxes/freebsd102"
+    machine.vm.network "private_network", ip: "192.168.10.111"
+    machine.vm.synced_folder ".", "/vagrant", disabled: true
+  end
+
 end
+
 
